@@ -6,7 +6,7 @@
 /*   By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 19:35:42 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/01/24 18:54:38 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/01/24 21:45:52 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strldup(char *s1, int size);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_read_line(int fd, char *state);
+char	*ft_read_set(int fd, char *state);
 char	*ft_line(char *state);
 char	*ft_state(char *state);
 

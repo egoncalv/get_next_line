@@ -6,13 +6,13 @@
 /*   By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 19:33:52 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/01/24 20:48:12 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/01/24 21:45:33 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_read_line(int fd, char *state)
+char	*ft_read_set(int fd, char *state)
 {
 	char		*buffer;
 	int			read_return;
@@ -94,7 +94,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	state = ft_read_line(fd, state);
+	state = ft_read_set(fd, state);
 	if (!state)
 		return (NULL);
 	line = ft_line(state);
