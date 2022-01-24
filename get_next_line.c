@@ -6,7 +6,7 @@
 /*   By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 19:33:52 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/01/24 17:18:32 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/01/24 18:34:20 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,15 @@ char	*ft_line(char *state)
 	line_size = 0;
 	if (!state)
 		return (NULL);
+	if (state[line_size] == '\n')
+	{
+		line = malloc(sizeof(char) * 2);
+		if (!line)
+			return (NULL);
+		line[0] = '\n';
+		line[1] = 0;
+		return (line);
+	}
 	while (state[line_size] && state[line_size] != '\n')
 		line_size++;
 	line = ft_strldup(state, line_size);

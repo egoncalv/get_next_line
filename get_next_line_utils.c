@@ -6,7 +6,7 @@
 /*   By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 19:35:11 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/01/24 16:59:17 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/01/24 18:20:15 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strldup(char *s1, int size)
 
 	if (size < 1 || !s1)
 		return (NULL);
-	str = malloc(sizeof(char) * size + 2);
+	str = malloc((sizeof(char) * size) + 2);
 	if (!str)
 		return (NULL);
 	i = 0;
