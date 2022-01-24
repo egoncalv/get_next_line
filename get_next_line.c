@@ -6,7 +6,7 @@
 /*   By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 19:33:52 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/01/24 18:34:20 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/01/24 20:48:12 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,7 @@ char	*ft_state(char *state)
 	j = 0;
 	while (state[i])
 	{
-		str[j] = state[i];
-		i++;
-		j++;
+		str[j++] = state[i++];
 	}
 	str[j] = 0;
 	free(state);
@@ -98,7 +96,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	state = ft_read_line(fd, state);
 	if (!state)
-		return (NULL);	
+		return (NULL);
 	line = ft_line(state);
 	state = ft_state(state);
 	return (line);
