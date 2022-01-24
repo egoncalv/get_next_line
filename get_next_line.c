@@ -6,7 +6,7 @@
 /*   By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 19:33:52 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/01/22 03:15:10 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:18:32 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,12 @@ char	*ft_line(char *state)
 	return (line);
 }
 
-char	*get_next_line(int fd)
+char	*ft_state(char *state)
 {
-	static char	*state;
-	char		*line;
-	int			i;
+	char	*str;
+	int		i;
+	int		j;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
-		return (NULL);
-	state = ft_read_line(fd, state);
-	if (!state)
-		return (NULL);
-	line = ft_line(state);
 	i = 0;
 	while (state[i] && state[i] != '\n')
 		i++;
@@ -70,6 +64,33 @@ char	*get_next_line(int fd)
 		free(state);
 		return (NULL);
 	}
-	ft_bzero(state, i + 1);
+	str = malloc(sizeof(char) * ft_strlen(state) - i + 1);
+	if (!str)
+		return (NULL);
+	i++;
+	j = 0;
+	while (state[i])
+	{
+		str[j] = state[i];
+		i++;
+		j++;
+	}
+	str[j] = 0;
+	free(state);
+	return (str);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*state;
+	char		*line;
+
+	if (fd < 0 || BUFFER_SIZE < 1)
+		return (NULL);
+	state = ft_read_line(fd, state);
+	if (!state)
+		return (NULL);	
+	line = ft_line(state);
+	state = ft_state(state);
 	return (line);
 }

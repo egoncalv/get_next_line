@@ -6,7 +6,7 @@
 /*   By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 19:35:11 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/01/22 03:39:35 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/01/24 16:59:17 by egoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strldup(char *s1, int size)
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (s1[i] && i < size - 1)
+	while (s1[i] && i < size)
 	{
 		str[i] = s1[i];
 		i++;
@@ -45,7 +45,7 @@ char	*ft_strldup(char *s1, int size)
 		str[i] = s1[i];
 		i++;
 	}
-	s1[i] = 0;
+	str[i] = 0;
 	return (str);
 }
 
@@ -122,16 +122,4 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	free(s1);
 	return (str);
-}
-
-void	ft_bzero(void *s, int n)
-{
-	unsigned char	*ptr;
-
-	ptr = s;
-	while (n > 0)
-	{
-		*ptr++ = '\0';
-		n--;
-	}
 }
