@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: egoncalv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: erickbarros <erickbarros@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 19:35:11 by egoncalv          #+#    #+#             */
-/*   Updated: 2022/01/25 15:46:28 by egoncalv         ###   ########.fr       */
+/*   Updated: 2022/05/20 17:47:55 by erickbarros      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,32 @@ size_t	ft_strlen(const char *s)
 	while (s[i] != 0)
 		i++;
 	return (i);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*ptr;
+	size_t	i;
+
+	i = 0;
+	if (ft_strlen(s) < start)
+	{
+		ptr = malloc(sizeof(char) * 1);
+		if (!ptr)
+			return (0);
+		ptr[0] = '\0';
+		return (ptr);
+	}
+	ptr = malloc(sizeof(char) * len + 1);
+	if (!ptr)
+		return (0);
+	while (i < len)
+	{
+		ptr[i] = s[start + i];
+		i++;
+	}
+	ptr[i] = 0;
+	return (ptr);
 }
 
 char	*ft_strldup(char *s1, int size)
